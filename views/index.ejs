@@ -1,26 +1,42 @@
+<!-- identify document as HTML for browser -->
 <!DOCTYPE html>
+<!-- classify language as english -->
 <html lang="en">
+<!-- create a head -->
 <head>
+    <!-- select character set -->
     <meta charset="UTF-8">
+    <!-- select http equivalent and content -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- make content as wide as the viewport with normal scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- assign title to document (visible on tab in browser) -->
     <title>Document</title>
+    <!-- connect font awesome styles (trash can) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- connect your style sheet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- close head -->
 </head>
+
+<!-- open body -->
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <!-- important title -->
     <h1>Todo List: </h1>
+    <!-- ul with class todoItems to place items into -->
     <ul class="todoItems">
+    <!-- loop through length of items array (received from server/mongoDB)-->
     <% for(let i=0; i < items.length; i++) {%>
+        <!-- create a list item with item class-->
+        <!-- if this item's property 'completed' has a value of true, then: -->
+        <!-- create a span with 'completed' class with inner text of this thing's value -->
+        <!-- otherwise: -->
+        <!-- do same thing but don't include the class 'completed' -->
+        <!-- close our conditional -->
+        <!-- create a span with font awesome classes -->
+        <!-- close the list item -->
+        <!-- close our loop -->
+        <!-- close the list -->
         <li class="item">
             <% if(items[i].completed === true) {%>
                 <span class='completed'><%= items[i].thing %></span>
@@ -32,16 +48,24 @@
     <% } %>
     </ul>
 
+    <!-- create h2 using the left property's value -->
     <h2>Left to do: <%= left %></h2>
 
+    <!-- h2 for subtitle -->
     <h2>Add A Todo:</h2>
 
+    <!-- create form with action referenced in server.js and applicable method of 'POST' -->
     <form action="/addTodo" method="POST">
+        <!-- create a field with a type and name -->
         <input type="text" placeholder="Thing To Do" name="todoItem">
+        <!-- create a submit field (this is not a button) -->
         <input type="submit">
+        <!-- close form -->
     </form>
     
-
+    <!-- run js script -->
     <script src='js/main.js'></script>
+    <!-- close body -->
 </body>
+<!-- close document -->
 </html>
