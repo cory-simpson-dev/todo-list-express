@@ -47,7 +47,6 @@ app.get('/',async (request, response)=>{
 
 // when the client requests the /addToDo POST (from the index.ejs form) do this:
 app.post('/addTodo', (request, response) => {
-    console.log(request)
     // add an object with the form data to the mongodb 'todo' collection with default completed value of false
     db.collection('todos').insertOne({thing: request.body.todoItem, completed: false})
     // then do this:
@@ -55,7 +54,7 @@ app.post('/addTodo', (request, response) => {
         // let us know that the todo was added via a console.log
         console.log('Todo Added')
         // refresh page
-        // response.redirect('/')
+        response.redirect('/')
     })
     // otherwise, catch and tell us about any errors via the console
     .catch(error => console.error(error))
@@ -63,7 +62,6 @@ app.post('/addTodo', (request, response) => {
 
 // when the client requests the /markComplete update do this:
 app.put('/markComplete', (request, response) => {
-    console.log(`${request}`)
     // grab the item from the 'todos' collection that has a thing value of whatever is clicked and do this:
     db.collection('todos').updateOne({thing: request.body.itemFromJS},{
         // set the completed property to have a true value

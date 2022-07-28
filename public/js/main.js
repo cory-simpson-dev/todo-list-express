@@ -27,7 +27,6 @@ Array.from(itemCompleted).forEach((element)=>{
 async function deleteItem(){
     // assign variable to select inner text of this todo item
     const itemText = this.parentNode.childNodes[1].innerText
-    console.log(itemText)
     // attempt to:
     try{
         // assign a variable to your fetch (which grabs deleteItem from server.js)
@@ -48,7 +47,7 @@ async function deleteItem(){
         // console log that json data
         console.log(data)
         // refresh the page
-        // location.reload()
+        location.reload()
     // if something went wrong:
     }catch(err){
         // console log the issue
@@ -79,7 +78,7 @@ async function markComplete(){
          // console log that json data
          console.log(data)
          // refresh the page
-        //  location.reload()
+         location.reload()
      // if something went wrong:
      }catch(err){
          // console log the issue
@@ -108,7 +107,7 @@ async function markUnComplete(){
        // console log that json data
        console.log(data)
        // refresh the page
-    //    location.reload()
+       location.reload()
     // if something went wrong:
     }catch(err){
        // console log the issue
